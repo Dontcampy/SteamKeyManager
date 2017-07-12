@@ -1,5 +1,5 @@
 group 'com.linstreasure'
-version '0.0.5-alpha'
+version '0.0.5-1-alpha'
 
 apply plugin: 'java'
 
@@ -15,4 +15,9 @@ dependencies {
     compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
     // https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc
     compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.19.3'
+}
+
+jar {
+    manifest.attributes 'Main-Class': 'Interface'
+    from configurations.compile.collect { zipTree it }
 }
